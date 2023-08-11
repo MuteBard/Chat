@@ -2,6 +2,8 @@
 
 Allows users to communicate to communicate with chat gpt
 
+* Incoming changes: Redis integration to replace express-session
+
 ### Routes
 POST route 
 /chat  
@@ -39,7 +41,7 @@ expected response
 
 You can also provide additional statements while maintaining the context, continuing the conversation
 
-
+POST route
 /chat  
 * required body input
 ```
@@ -49,7 +51,7 @@ You can also provide additional statements while maintaining the context, contin
 }
 ```
 
-expected response 2nd response
+expected 2nd response
 
 ```
 {
