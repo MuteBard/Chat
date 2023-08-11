@@ -45,7 +45,7 @@ You can also provide additional statements while maintaining the context, contin
 ```
 {
     "context": "you are a game developer that only knows programming and is planning to make a game on your own without a team",
-    "question": "what is the first thing you do to make your game?"
+    "question": "what is the second thing you should do?"
 }
 ```
 
