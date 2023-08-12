@@ -16,8 +16,14 @@ function selectModel(type) {
 }
 
 exports.openAI = {
-	token: ENV["DEV_OPEN_AI_TOKEN"] || ENV["PROD_OPEN_AI_TOKEN"] || undefined,
-	organization: ENV["OPEN_AI_ORG"] || undefined,
-	model: ENV["MODEL_TYPE"] ? selectModel(Number(ENV["MODEL_TYPE"])) : undefined,
+	token: ENV["DEV_OPEN_AI_TOKEN"] || ENV["PROD_OPEN_AI_TOKEN"],
+	organization: ENV["OPEN_AI_ORG"],
+	model: ENV["MODEL_TYPE"] && selectModel(Number(ENV["MODEL_TYPE"])),
 	debug: ENV["DEBUG"] === "true",
 };
+
+exports.cloudinary = {
+	api_secret: ENV["DEV_CLOUD_API_TOKEN"] || ENV["PROD_CLOUD_API_TOKEN"],
+	cloud_name: ENV["CLOUD_NAME"],
+	api_key: ENV["CLOUD_API_KEY"] 
+}

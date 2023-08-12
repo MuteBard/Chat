@@ -1,6 +1,9 @@
+"use strict";
+
 const express = require("express");
 const bodyParser = require("body-parser");
-const openAI = require("./openAI/chat");
+const openAI = require("./openAI/service");
+const cloudinary = require("./cloudinary/service");
 const settings = require("./settings");
 const session = require("express-session");
 
@@ -18,7 +21,13 @@ app.use(
 	})
 );
 
-app.get("/responses/user", (req, res) => {
+app.get('/image/list', async (req, res) => {
+	const response = await cloudinary.getImages(settings.cloudinary);
+	res.send(response)
+
+});
+
+app.get("/ai/responses/user", (req, res) => {
 	const prompt = req.session.lastPrompt;
 	if (!prompt) {
 		throw new Error("Message history is empty");
@@ -27,7 +36,7 @@ app.get("/responses/user", (req, res) => {
 	res.send(responses);
 });
 
-app.get("/responses/ai", (req, res) => {
+app.get("/ai/responses/assistant", (req, res) => {
 	const prompt = req.session.lastPrompt;
 	if (!prompt) {
 		throw new Error("Message history is empty");
@@ -36,7 +45,7 @@ app.get("/responses/ai", (req, res) => {
 	res.send(responses);
 });
 
-app.post("/chat", async (req, res) => {
+app.post("/ai/chat", async (req, res) => {
 	const prompt = req.body;
 	const lastPrompt = req.session.lastPrompt;
 	let updatedPrompt = null;

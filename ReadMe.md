@@ -6,7 +6,7 @@ Allows users to communicate to communicate with chat gpt
 
 ### Routes
 POST route 
-/chat  
+/ai/chat  
 * required body input
 ```
 {
@@ -42,7 +42,7 @@ expected response
 You can also provide additional statements while maintaining the context, continuing the conversation
 
 POST route
-/chat  
+/ai/chat  
 * required body input
 ```
 {
@@ -85,7 +85,7 @@ expected 2nd response
 
 
 GET route
-/responses/user
+/ai/responses/user
 
 This get you all the user prompts
 
@@ -103,7 +103,7 @@ This get you all the user prompts
 ```
 
 GET route
-/responses/ai
+/ai/responses/assistant
 
 This get you all the ai prompts
 
