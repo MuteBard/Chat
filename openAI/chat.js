@@ -1,14 +1,7 @@
 const { Configuration, OpenAIApi } = require("openai");
 
 function setSpeaker(role, message) {
-	switch (role) {
-		case "system":
-			return { role: "system", content: message }; //context setting AI role
-		case "user":
-			return { role: "user", content: message }; //user role
-		default:
-			return { role: role, content: message }; //AI role
-	}
+	return { role: role, content: message };
 }
 
 function getBody(prompt, { model }) {
