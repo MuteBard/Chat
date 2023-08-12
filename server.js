@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const openAI = require("./openAPI/chat");
+const openAI = require("./openAI/chat");
 const settings = require("./settings");
 const session = require("express-session");
 
