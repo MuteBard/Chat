@@ -89,17 +89,10 @@ expected 2nd response
 
 ### ENV Management
 
-Code is dependant on either dev.env and prod.env
+Code is dependant on either dev.env
 
 examples envs are:
 example-dev.env
-example-prod.env
-
-DEV_OPEN_AI_TOKEN / PROD_OPEN_AI_TOKEN
-Need to have an account and create and use a token from https://platform.openai.com/account/api-keys
-
-OPEN_AI_ORG
-OpenAI-Organization can be found here https://platform.openai.com/docs/api-reference/authentication?lang=node.js
 
 MODEL_TYPE
 Select model type, look in setting.js to see available models

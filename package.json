@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "clear && nodemon -r ./env/initializeEnvs.js index.js dev",
-    "prod": "clear && node -r ./env/initializeEnvs.js index.js prod"
+    "dev": "clear && nodemon -r ./env/initializeEnvs.js index.js dev"
   },
   "keywords": [],
   "author": "",
