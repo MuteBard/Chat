@@ -1,11 +1,11 @@
 "use strict";
 
 const { Configuration, OpenAIApi } = require("openai");
-const { setSpeaker } = require('./util');
+const { setSpeaker } = require("./helperFunctions");
 
 function getBody(prompt, openAISettings) {
 	const { model } = openAISettings;
-	const { context, question, history} = prompt;
+	const { context, question, history } = prompt;
 	let messages = [];
 	if (!history) {
 		messages = [setSpeaker("system", context), setSpeaker("user", question)];
@@ -37,5 +37,5 @@ async function openAIClient(prompt, openAISettings) {
 }
 
 module.exports = {
-	openAIClient
+	openAIClient,
 };

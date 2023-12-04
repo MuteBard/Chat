@@ -1,11 +1,10 @@
 "use strict";
 
-const { openAIClient } = require('./client');
-const { getMockContent, setSpeaker } = require('./util');
-
+const { openAIClient } = require("../openAI/client");
+const { getMockContent, setSpeaker } = require("../openAI/helperFunctions");
 
 async function chatCompletion(prompt, openAISettings) {
-	const { debug } = openAISettings
+	const { debug } = openAISettings;
 	const { body, request } = await openAIClient(prompt, openAISettings);
 	const { messages } = body;
 
@@ -27,23 +26,10 @@ async function chatCompletion(prompt, openAISettings) {
 		response: AIResponse,
 		history: [...messages, setSpeaker(AIRole, AIResponse)],
 	};
+
 	return newPrompt;
-}
-
-function getUserResponses(prompt) {
-	const result = prompt.history.filter((prompt) => prompt.role === "user");
-	return result;
-}
-
-function getAIResponses(prompt) {
-	const result = prompt.history.filter(
-		(prompt) => prompt.role != "user" && prompt.role != "system"
-	);
-	return result;
 }
 
 module.exports = {
 	chatCompletion,
-	getAIResponses,
-	getUserResponses,
 };

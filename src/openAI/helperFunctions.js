@@ -26,7 +26,7 @@ function getMockContent() {
 }
 
 function setSpeaker(role, message) {
-	return { role: role, content: message };
+	return { role, content: message };
 }
 
 module.exports = {
