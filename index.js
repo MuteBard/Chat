@@ -40,7 +40,6 @@ app.post("/ai/chat", verifyToken, async (req, res) => {
 app.get("/ai/clear", verifyToken, async (req, res) => {
 	const { key } = req.user;
 	const clearedPrompt = {
-		history: null,
 		context: null,
 		response: null,
 		history: [],
@@ -55,9 +54,9 @@ async function addPrompt(prompt) {
 	const { key } = prompt;
 	let updatedPrompt = null;
 	const lastPrompt = (await redis.get(key)) || {
-		history: null,
 		context: null,
 		response: null,
+		history: [],
 	};
 
 	if (lastPrompt?.history.length >= settings.openAI.chat_history_size) {
