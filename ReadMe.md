@@ -1,8 +1,9 @@
 # Chat GPT Integration
 
-Allows users to communicate to communicate with chat gpt
+Allows users to communicate to communicate with chat gpt with context
 
-* Incoming changes: Redis integration to replace express-session
+Redis: https://console.upstash.com/login
+OpenAiApi: https://platform.openai.com/docs/overview
 
 ### Routes
 POST route 
